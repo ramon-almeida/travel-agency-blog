@@ -1,9 +1,95 @@
 <!DOCTYPE html>
 <html> 
     <head> 
-        
+      <title>Ramon.io</title> 
+      <style>
+        /* Set the width and height of all images inside .slideshow */
+        .slideshow img {
+          width: 100px;
+          height: 100px;
+        }
+        /* Hide all images by default */
+        .slideshow {
+          display: none;
+        }
+        /* Show the first image by default */
+        .slideshow:first-child {
+          display: block;
+        }
+      </style>
     </head> 
     <body> 
+        <h1>Ramon's Travel Blog</h1>  
+        <h4>Here are all the countries I've been!</h4>
+        <ul>
+            <li>Spain</li>
+            <li>Mexico</li>
+            <li>UK</li>
+            <li>Poland</li>
+            <li>Turkey</li>
+            <li>France</li>
+        </ul>
+        <h4>We recommend to visit:</h4>
+        <ul>
+            <li>Riviera Maya (Mexico)</li>
+            <li>Zahara de los Atunes (Spain)</li>
+            <li>Lake District (UK)</li>
+            <li>Świnica (Poland)</li>
+            <li>Kalkan (Turkey)</li>
+        </ul>
+        <ol>
+            <li>Relax and enjoy the local beaches and taste fresh fish from local restaurants (Zahara de los Atunes)</li>
+            <li>Experience Cenotes and local cuisine (Riviera Maya)</li>
+            <li>Experience the beautiful natural views and relax with family or friends(Świnica) </li>
+        </ol>
+        <p>Our Travel Agents will get you where you want to go, when you want to go, for the price you want to pay!</p>
+        <div class="galery">
+            <img class="slideshow" src="Spain.jpg" alt="Spain">
+            <img class="slideshow" src="mexico.jpg" alt="Mexico">
+            <img class="slideshow" src="poland.jpg" alt="Poland">
+            <img class="slideshow" src="turkey.jpg" alt="Turkey">
+            <img class="slideshow" src="Manchester.png" alt="Manchester">
+        </div>
+        <!-- Add buttons to switch between images -->
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
         
+        <script>
+            var index = 0;
+            var images = document.getElementsByClassName("slideshow");
+            
+            function showImage(n) {
+              // Hide all images
+              for (var i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+              }
+              // Show the specified image
+              images[n].style.display = "block";
+              index = n;
+            }
+            
+            function prevImage() {
+              if (index === 0) {
+                showImage(images.length - 1);
+              } else {
+                showImage(index - 1);
+              }
+            }
+            
+            function nextImage() {
+              if (index === images.length - 1) {
+                showImage(0);
+              } else {
+                showImage(index + 1);
+              }
+            }
+            
+            // Show the first image by default
+            showImage(0);
+        </script>
     </body>
 </html>
+
+
+
+
